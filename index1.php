@@ -3,35 +3,37 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="index.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	
 	        <meta name="format-detection" content="telephone=no">
 	        <meta name="apple-mobile-web-app-capable" content="yes" />
 
 		<meta charset="utf-8">
 	</head>
 
-	<body
+	<body class="typeform-default">
+		
+		<div class="container">
 	
-		<h1>CV Generator</h2>
+			<h1>CV Generator</h1>
+			
+			<div class="typeform-widget" data-url="//demo.typeform.com/to/PlLJcr" style="width:100%;height:500px;"></div>
 
-
-		<div id="my-embedded-typeform"
-         	style="width: 100%; height: 300px;">
+			<div id="my-embedded-typeform"
+        	 		style="width: 200%; height: 200%; text-align: center; padding-bottom:10px; padding-top:50px;">
+			</div>
 		</div>
 		
 		<script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
-      window.addEventListener("DOMContentLoaded", function() {
-      var el = document.getElementById("my-embedded-typeform");
+                window.addEventListener("DOMContentLoaded", function() {
+                	var el = document.getElementById("my-embedded-typeform");
       
-      // When instantiating a widget embed, you must provide the DOM element
-      // that will contain your typeform, the URL of your typeform, and your
-      // desired embed settings
-      window.typeformEmbed.makeWidget(el, "https://admin.typeform.com/to/PlLJcr", {
+   
+        window.typeformEmbed.makeWidget(el, "https://admin.typeform.com/to/PlLJcr", {
         hideFooter: true,
         hideHeaders: true,
-        opacity: 0
+        opacity: 0,
 	onSubmit(data) {
 		console.log(data)
 		var string_data = JSON.stringify(data)
