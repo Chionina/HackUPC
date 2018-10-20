@@ -6,7 +6,7 @@
 
 
 	$name = $answers[0]-> text;
-	
+
 	$cv = $answers[1]->choice->label;
 
 	$email = $answers[2]-> email;
@@ -15,7 +15,7 @@
 	$date = $answers[4]-> date;
 	$education = $answers[5]-> choice->label;
 
-//masters for presentation actual would be implemented 
+//masters for presentation actual would be implemented
 /*	if($education == "PhD")
 	{
 		$pstartyear = $answers[6]-> number;
@@ -36,7 +36,7 @@
 		$bfield = $answers[19]-> text;
 		$bdetails = $answers[20]-> text;
 
-		$fields = 
+		$fields =
 
 	} */
 
@@ -49,7 +49,7 @@
 		$mfield = $answers[9]-> text;
 		$mdetails = $answers[10]-> text;
 
-		
+
 		$bstartyear = $answers[11]-> number;
 		$bendyear = $answers[12]-> number;
 		$buni = $answers[13]-> text;
@@ -64,9 +64,9 @@
 		$description1 = $answers[20]-> text;
 
 		$type2 = $answers[21]-> text;
-		$startyear1 = $answers[22]-> number;
-		$endyear1 = $answers[23]-> number;
-		$description1 = $answers[24]-> text;
+		$startyear2 = $answers[22]-> number;
+		$endyear2 = $answers[23]-> number;
+		$description2 = $answers[24]-> text;
 
 		$progSkills = $answers[25]-> text;
 		$langSkills = $answers[26]-> text;
@@ -74,12 +74,12 @@
 		//2 award fields- skipp how many
 		$award1 = $answers[28]-> text;
 		$award2 = $answers[29]-> text;
-	
+
 		//2 interests- skipp how many
 		$inter1 = $answers[31]-> text;
 		$inter2 = $answers[32]-> text;
 
-	
+
 	}
 
 
@@ -93,11 +93,11 @@
 		$bfield = $answers[9]-> text;
 		$bdetails = $answers[10]-> text;
 	}
-	
-	
+
+
 */
-		
-	
+
+
       // Function to replace fields in the latex file.
       function replace_in_file($FilePath, $OldText, $NewText){
         $Result = array('status' => 'error', 'message' => '');
@@ -135,50 +135,42 @@
         return $Result;
     }
     // Creates a copy of the required template based on form.
-    $CvTemplate = "C:\Users\Steeve\Desktop\HackUPC\CVTemplate.tex";
-    switch ($form) {
-      case 1:
-        $Cv = "C:\Users\Steeve\Desktop\HackUPC\CV1.tex";
-        break;
-      case 2:
-        $Cv = "C:\Users\Steeve\Desktop\HackUPC\CV2.tex";
-        break;
-      case 3:
-        $Cv = "C:\Users\Steeve\Desktop\HackUPC\CV3.tex";
-        break;
-      case 4:
-        $Cv = "C:\Users\Steeve\Desktop\HackUPC\CV4.tex";
-        break;
-    }
+
+		$CvTemplate = "C:\Users\Steeve\Desktop\HackUPC\CVTemplate.tex";
+
+		$Cv = "C:\Users\Steeve\Desktop\HackUPC\CV.tex";
+
     copy($CvTemplate, $Cv);
     // Replace the personal details
-    replace_in_file($Cv, "!Name", "Steeve");
-    replace_in_file($Cv, "!Email", "Tossi99@hotmail.com");
-    replace_in_file($Cv, "!Number", "07552162797");
-    replace_in_file($Cv, "!Birthday", "23/01/1999");
+    replace_in_file($Cv, "!name", $name);
+    replace_in_file($Cv, "!Email", $email);
+    replace_in_file($Cv, "!Number", $phone);
+    replace_in_file($Cv, "!Birthday", $date);
     // Fill in the education
     // If education level == Phd then education = 3;
     // If education level == Masters then education = 2;
     // If education level == bachelors then education = 1;
-    for ($i = 1, $i < $n, $i++){
-      replace_in_file($Cv, "%edu" .$i, "\EducationEntry{!Education name" .$i. "}{!EducationDate" .$i. "}{!NameofUniversity" .$i."}{!UniDescription" .$i."} \sepspace");
-    }
+      replace_in_file($Cv, "%edu1" , "\EducationEntry{". $education . "}{" . $mstartyear . "-". $mendyear . "}{"$muni."}{". $mdetails."} \sepspace");
+
+			replace_in_file($Cv, "%edu2" , "\EducationEntry{Bachelors}{" . $bstartyear . "-". $bendyear . "}{"$buni."}{". $bdetails."} \sepspace");
+
     // Fill in the experience
-    for ($x = 1; $x <= 4; $x++){
-      replace_in_file($Cv, "%exp".$x, '\EducationEntry{!JobName'.$x.'}{!JobDate'.$x.'}{!CompanyName'.$x.
-        '}{!JobDescription'.$x.'} \sepspace');
-      // Add a few replaces
-    }
+    replace_in_file($Cv, "%exp1", '\EducationEntry{'.$type1.'}{'.$startyear1 - .$endyear1.'}{'.$description1.'} \sepspace');
+
+    replace_in_file($Cv, "%exp2", '\EducationEntry{'.$type2.'}{'.$startyear2 - .$endyear2.'}{'.$description2.'} \sepspace');
+
     // fill in the Skills
-    replace_in_file($Cv, "!Languages", "language details");
-    replace_in_file($Cv, "!Software", "Software details");
-    // Fill in the awards, there will be a variable to keep track of how many.
-    for ($j = 1, $j < n < $j++){
-      replace_in_file($Cv, "%awards" .$j, "Awards");
-    }
-    // Fill in the activities
-    for ($k = 1, $k < n < $k++){
-      replace_in_file($Cv, "%interests" .$k, "Interests");
-    }
+    replace_in_file($Cv, "!Languages", $langSkills);
+    replace_in_file($Cv, "!Software", $progSkills);
+
+		// Fill in the awards, there will be a variable to keep track of how many.
+    replace_in_file($Cv, "%awards1", $award1);
+		replace_in_file($Cv, "%awards2", $award2);
+
+
+		// Fill in the activities
+    replace_in_file($Cv, "%interests1", $inter1);
+		replace_in_file($Cv, "%interests2", $inter2);
+
 
 ?>
