@@ -32,11 +32,6 @@
         hideFooter: true,
         hideHeaders: true,
         opacity: 0,
-	onSubmit(data) {
-		console.log(data)
-		var string_data = JSON.stringify(data)
-		window.location = 'http://localhost:9888/?data=' + string_data
-	}
       });
     });
   </script>
