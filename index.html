@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css">
+
+		<meta charset="utf-8">
+	</head>
+
+	<body
+	
+		<textarea rows="4" cols="50">
+
+		</textarea>
+
+		
+		<script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
+
+		<script type="text/javascript">
+    window.addEventListener("DOMContentLoaded", function() {
+      var el = document.getElementById("my-embedded-typeform");
+      
+      // When instantiating a widget embed, you must provide the DOM element
+      // that will contain your typeform, the URL of your typeform, and your
+      // desired embed settings
+      window.typeformEmbed.makeWidget(el, "https://admin.typeform.com/to/cVa5IG", {
+        hideFooter: true,
+        hideHeaders: true,
+        opacity: 0
+				onSubmit(data) {
+					console.log(data)
+					var string_data = JSON.stringify(data)
+					window.location = 'http://localhost:9888/?data=' + string_data
+				}
+      });
+    });
+  </script>
+
+
+	</body>
+</html>
