@@ -12,16 +12,14 @@
 
 	<body class="typeform-default">
 		
-		<div class="container">
-	
-			<h1>CV Generator</h1>
+
+		
+
+			<h1 style="text-align: center;">CV Generator</h1>
 			
 			<div class="typeform-widget" data-url="//demo.typeform.com/to/PlLJcr" style="width:100%;height:500px;"></div>
 
-			<div id="my-embedded-typeform"
-        	 		style="width: 200%; height: 200%; text-align: center; padding-bottom:10px; padding-top:50px;">
-			</div>
-		</div>
+				
 		
 		<script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
 
@@ -43,6 +41,7 @@
     });
   </script>
 
+<!-- code copied from https://www.ccbtutorials.com/accessing-typeform-form-data-using-typeform-api-php/ -->
 
-	</body>
+</body>
 </html>
