@@ -136,9 +136,9 @@
     }
     // Creates a copy of the required template based on form.
 
-		$CvTemplate = "C:\Users\Steeve\Desktop\HackUPC\CVTemplate.tex";
+		$CvTemplate = "C:\wamp64\www\CVTemplate.tex";
 
-		$Cv = "C:\Users\Steeve\Desktop\HackUPC\CV.tex";
+		$Cv = "C:\wamp64\www\CV.tex";
 
     copy($CvTemplate, $Cv);
     // Replace the personal details
@@ -150,14 +150,14 @@
     // If education level == Phd then education = 3;
     // If education level == Masters then education = 2;
     // If education level == bachelors then education = 1;
-      replace_in_file($Cv, "%edu1" , "\EducationEntry{". $education . "}{" . $mstartyear . "-". $mendyear . "}{"$muni."}{". $mdetails."} \sepspace");
+      replace_in_file($Cv, "%edu1" , "\EducationEntry{". $education . "}{" . $mstartyear . "-". $mendyear . "}{".$muni."}{". $mdetails."} \sepspace");
 
-			replace_in_file($Cv, "%edu2" , "\EducationEntry{Bachelors}{" . $bstartyear . "-". $bendyear . "}{"$buni."}{". $bdetails."} \sepspace");
+			replace_in_file($Cv, "%edu2" , "\EducationEntry{Bachelors}{" . $bstartyear . "-". $bendyear . "}{".$buni."}{". $bdetails."} \sepspace");
 
     // Fill in the experience
-    replace_in_file($Cv, "%exp1", '\EducationEntry{'.$type1.'}{'.$startyear1 - .$endyear1.'}{'.$description1.'} \sepspace');
+    replace_in_file($Cv, "%exp1", '\EducationEntry{'.$type1.'}{'.$startyear1. "-" .$endyear1.'}{}{'.$description1.'} \sepspace');
 
-    replace_in_file($Cv, "%exp2", '\EducationEntry{'.$type2.'}{'.$startyear2 - .$endyear2.'}{'.$description2.'} \sepspace');
+    replace_in_file($Cv, "%exp2", '\EducationEntry{'.$type2.'}{'.$startyear2. "-" .$endyear2.'}{}{'.$description2.'} \sepspace');
 
     // fill in the Skills
     replace_in_file($Cv, "!Languages", $langSkills);

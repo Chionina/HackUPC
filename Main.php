@@ -32,6 +32,7 @@
         hideFooter: true,
         hideHeaders: true,
         opacity: 0,
+	
       });
     });
   </script>
