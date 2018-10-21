@@ -40,9 +40,6 @@
 
 	} */
 
-	if($education == "Masters")
-	{
-
 		$mstartyear = $answers[6]-> number;
 		$mendyear = $answers[7]-> number;
 		$muni = $answers[8]-> text;
@@ -80,7 +77,7 @@
 		$inter2 = $answers[32]-> text;
 
 
-	}
+	
 
 
 //trivial
@@ -136,9 +133,9 @@
     }
     // Creates a copy of the required template based on form.
 
-		$CvTemplate = "C:\wamp64\www\CVTemplate.tex";
+		$CvTemplate = 'C:\xampp\htdocs\CVTemplate.tex';
 
-		$Cv = "C:\wamp64\www\CV.tex";
+		$Cv = 'C:\xampp\htdocs\CV.tex';
 
     copy($CvTemplate, $Cv);
     // Replace the personal details
