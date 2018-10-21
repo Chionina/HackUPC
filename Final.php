@@ -17,13 +17,13 @@ $name = $_GET["name"];
 //$file = $_GET["file"];
 $file = 'C:\wamp64\www\CV.pdf';
 
-header("Content-type:application/pdf");
+//header("Content-type:application/pdf");
 
 // It will be called downloaded.pdf
-header("Content-Disposition:attachment;filename='".$name.".pdf'");
+//header("Content-Disposition:attachment;filename='".$name.".pdf'");
 
 // The PDF source is in original.pdf
-readfile($file);
+//readfile($file);
 ?>
 </body>
 </html>

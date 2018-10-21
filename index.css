@@ -20,7 +20,7 @@
 }
 body {
   margin: 5%;
-  background-color: #ECEDE6;
+  background-color: black;
 }
 
 body.typeform-default {
@@ -32,6 +32,7 @@ body.typeform-default .typeform-widget {
   width: 920px;
 }
 h1 {
+  color: white;
   letter-spacing: -0.02em;
   font-family: "Georgia", "Times";
   font-weight: normal;
@@ -75,23 +76,27 @@ p {
 
 @media screen and (min-width: 400px) {
   h1 {
+    color: white;
     font-size: 36px;
     margin-bottom: 20px;
   }
 }
 @media screen and (min-width: 600px) {
   h1 {
+    color: white;
     font-size: 59px;
     margin-bottom: 40px;
   }
 }
 @media screen and (min-width: 800px) {
   h1 {
+    color: white; 
     font-size: 74px;
     margin-bottom: 30px;
   }
 }
 .typeform-default h1 {
+  color: white;
   font-size: 74px;
   margin-bottom: 30px;
 }

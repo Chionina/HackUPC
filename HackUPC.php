@@ -155,9 +155,9 @@
 			replace_in_file($Cv, "%edu2" , "\EducationEntry{Bachelors}{" . $bstartyear . "-". $bendyear . "}{".$buni."}{". $bdetails."} \sepspace");
 
     // Fill in the experience
-    replace_in_file($Cv, "%exp1", '\EducationEntry{'.$type1.'}{'.$startyear1. "-" .$endyear1.'}{}{'.$description1.'} \sepspace');
+    replace_in_file($Cv, "%exp1", "\EducationEntry{".$type1."}{".$startyear1. "-" .$endyear1."}{}{".$description1."} \sepspace");
 
-    replace_in_file($Cv, "%exp2", '\EducationEntry{'.$type2.'}{'.$startyear2. "-" .$endyear2.'}{}{'.$description2.'} \sepspace');
+    replace_in_file($Cv, "%exp2", "\EducationEntry{".$type2."}{".$startyear2. "-" .$endyear2."}{}{".$description2."} \sepspace");
 
     // fill in the Skills
     replace_in_file($Cv, "!Languages", $langSkills);
@@ -171,6 +171,9 @@
 		// Fill in the activities
     replace_in_file($Cv, "%interests1", $inter1);
 		replace_in_file($Cv, "%interests2", $inter2);
+
+
+	exec("pdflatex CV.tex");
 
 
 ?>
